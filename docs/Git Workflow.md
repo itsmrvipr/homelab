@@ -57,3 +57,15 @@ Commit messages use the format `<type>(<scope>): <summary>`
 
 - Summary should be a brief description of changes
     - Valid examples: `misc(image-upload): added background1 to images/`, `bugfix(issue-12-proxmox-api): created new api key for service account`
+
+## Merging Commits
+
+### Merge Request Standards
+
+Merge request titles must follow the format `<type>(<scope>): <summary>`
+
+#### Acceptable merge request standards:
+- Merge request titles should read as if they were a single, final commit
+
+- Summary should describe the net effect of the merge
+    - Valid example: `docs(git-workflow): define branching, commit, and MR standards`
