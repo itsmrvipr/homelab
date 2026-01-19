@@ -1,16 +1,18 @@
 # Git Workflow
 
-Branching and commits in this repository loosely follow the [Conventional Branch](https://conventional-branch.github.io/#summary) and [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/#summary) standards.
+Branching and commits in this repository *loosely* follow the [Conventional Branch](https://conventional-branch.github.io/#summary) and [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/#summary) standards.  
+
+This adapted convention is intentionally minimal and may evolve over time as the repository grows.
 
 ## Creating a Branch
 
-### Branch Naming Prefixes
+### Branch Naming Standards
 `main` must always remain in a deployable state; all work branches are created from it.
 
-Branch names should be structured as `<type>/<scope>`.  
+Branch names should use the format `<type>/<scope>`.  
 Branch names should clearly communicate the purpose of work.
 
-Acceptable branch type standards:
+#### Acceptable branch type standards:
 - `feature/` (or `feat/`): For introduction of new code/functionality
     - Valid examples: `feature/nixos-config`, `feat/homepage`
     - "`add-`" in scope is implied and redundant (e.g., `feature/add-sso`, `feat/add-reverse-proxy`)
@@ -29,7 +31,7 @@ Acceptable branch type standards:
 - `docs/`: For documentation creation and updates
     - Valid examples: `docs/git-workflow`, `docs/grammar-changes`
 
-Acceptable scope standard:
+#### Acceptable scope standards:
 - Clearly define the `<scope>` of changes in as few words as possible
 
 - Use only lowercase letters (`a-z`), numbers (`0-9`), and hyphens (`-`)
@@ -44,3 +46,14 @@ Acceptable scope standard:
 
 - Avoid consecutive and leading hyphens or dots
     - Invalid examples: `hotfix/-traefik--update`, `misc/move-.config-directory`
+
+## Committing Changes
+
+### Commit Message Standards
+Commit messages use the format `<type>(<scope>): <summary>`
+
+#### Acceptable commit standards:
+- Commit `type` and `scope` should match the branch `type` and `scope` for related changes.
+
+- Summary should be a brief description of changes
+    - Valid examples: `misc(image-upload): added background1 to images/`, `bugfix(issue-12-proxmox-api): created new api key for service account`
