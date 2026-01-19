@@ -9,7 +9,7 @@ This adapted convention is intentionally minimal and may evolve over time as the
 ### Branch Naming Standards
 `main` must always remain in a deployable state; all work branches are created from it.
 
-Branch names should use the format `<type>/<scope>`.  
+Branch names must use the format `<type>/<scope>`.  
 Branch names should clearly communicate the purpose of work.
 
 #### Acceptable branch type standards:
@@ -50,10 +50,10 @@ Branch names should clearly communicate the purpose of work.
 ## Committing Changes
 
 ### Commit Message Standards
-Commit messages use the format `<type>(<scope>): <summary>`
+Commit messages must use the format `<type>(<scope>): <summary>`
 
 #### Acceptable commit standards:
-- Commit `type` and `scope` should match the branch `type` and `scope` for related changes.
+- Commit `type` and `scope` must match the branch `type` and `scope` for related changes.
 
 - Summary should be a brief description of changes
     - Valid examples: `misc(image-upload): added background1 to images/`, `bugfix(issue-12-proxmox-api): created new api key for service account`
@@ -69,3 +69,30 @@ Merge request titles must follow the format `<type>(<scope>): <summary>`
 
 - Summary should describe the net effect of the merge
     - Valid example: `docs(git-workflow): define branching, commit, and MR standards`
+
+## Workflow in Action 
+
+### Real-life Example
+
+The following example outlines this workflow being followed when creating this document:
+
+1. Create new branch from `main`
+2. Name branch > `docs/git-workflow`
+3. Define branching rules > Save
+4. Commit changes with message: `docs(git-workflow): branching rules`
+5. Add commit standards > Save
+6. Commit changes with message: `docs(git-workflow): added commit standards`
+7. Add merge request standards > Save
+8. Commit changes with message: `docs(git-workflow): added MR standards`
+9. Create merge request > `docs/git-workflow` into `main`
+10. Title: `docs(git-workflow): define git workflow standards` > Submit
+11. Squash and merge (preferred) > Confirm
+12. Delete branch
+13. Create new branch from `main`
+14. Name branch > `docs/git-workflow-update`
+15. Add workflow in action > Save
+16. Commit changes with message: `docs(git-workflow-update): added workflow example`
+17. Create merge request > `docs/git-workflow-update` into `main`
+18. Title: `docs(git-workflow-update): show workflow example` > Submit
+19. Squash and merge (preferred) > Confirm
+20. Delete branch
