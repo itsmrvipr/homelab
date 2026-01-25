@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -9,4 +9,13 @@
     ../system/locale/common.nix
 
   ];
+
+  environment.systemPackages = with pkgs; [
+    git
+    neovim
+    tree
+    fastfetch
+    wireguard-tools
+  ];
+
 }

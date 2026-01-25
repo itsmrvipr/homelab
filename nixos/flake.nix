@@ -21,7 +21,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, disko, ... }:
+  outputs = { self, nixpkgs, nixos-hardware, disko, home-manager, ... }:
   {
     nixosConfigurations.mobile-command-center = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -32,6 +32,8 @@
 
       modules = [
         disko.nixosModules.disko
+        home-manager.nixosModules.home-manager
+
         ./hosts/trust/mobile-command-center/configuration.nix
       ];
     };
