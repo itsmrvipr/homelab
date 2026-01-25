@@ -2,6 +2,7 @@
 
 {
   imports = [
+
     ### Services ###
 
     # Networking
@@ -9,6 +10,12 @@
 
     # SSH
     ../services/ssh
+
+
+    ### Sessions ###
+
+    # Cosmic
+    ../sessions/cosmic/default.nix
 
 
     ### System ###
