@@ -22,7 +22,7 @@
       ../../homemanager/programs/fish/default.nix
       ../../homemanager/programs/git/default.nix
       ../../homemanager/programs/firefox/default.nix
+      ../../homemanager/programs/starship/default.nix
     ];
-
   };
 }
