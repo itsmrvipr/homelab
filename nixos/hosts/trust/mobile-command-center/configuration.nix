@@ -1,7 +1,7 @@
 { ... }:
 
 {
-  networking.hostName = "command-center"
+  networking.hostName = "mobile-command-center";
 
   imports = [
     # Disko
@@ -18,8 +18,5 @@
 
 
   ];
-
-  # No touchy
-  system.stateVersion = "25.11";  
 
 }

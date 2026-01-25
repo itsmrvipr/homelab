@@ -1,6 +1,6 @@
 { ... }:
 
 {
-  # Don't ever change unless you know 
+  # No touchy
   system.stateVersion = "25.11";
 }
