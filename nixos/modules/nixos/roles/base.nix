@@ -5,6 +5,9 @@
     # Nix modules (GC, settings, version)
     ../nix/default.nix
 
+    # Fonts
+    ../fonts/default.nix
+
     # Locale
     ../system/locale/common.nix
 
