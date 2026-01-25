@@ -11,9 +11,10 @@
     ./hardware.nix
 
     # Base config
-    
+    ../../../modules/nixos/roles/base.nix
 
-    # Role (device type)
+    # Specialization (device type)
+    ../../../modules/nixos/roles/workstation.nix
 
 
   ];
