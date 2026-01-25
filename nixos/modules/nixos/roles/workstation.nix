@@ -33,6 +33,9 @@
     ../system/locale/est.nix
   ];
   
+  # Fish - Error if only enabled in Home Manager
+  programs.fish.enable = true;
+
   # Excplicitly disable SSH on workstations
   my.services.ssh.enable = false;
 

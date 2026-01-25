@@ -17,13 +17,11 @@
     home.stateVersion = "25.11";
 
     imports = [
-      # Home Manager defaults
-      ../homemanager/default.nix
 
       # Home Manager programs
-      ../homemanager/programs/fish/default.nix
-      ../homemanager/programs/git/default.nix
-      ../homemanager/programs/librewolf/default.nix
+      ../../homemanager/programs/fish/default.nix
+      ../../homemanager/programs/git/default.nix
+      ../../homemanager/programs/librewolf/default.nix
     ];
 
   };
