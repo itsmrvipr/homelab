@@ -2,8 +2,16 @@
 
 {
   programs.fish = {
+    enable = true;
+
     interactiveShellInit = ''
       set -g fish_greeting
+
+      if status is-interactive
+        if test -z "$SSH_TTY"
+          fastfetch
+        end
+      end
     '';
   };
 
