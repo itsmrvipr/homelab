@@ -23,7 +23,7 @@
 
   outputs = { self, nixpkgs, nixos-hardware, ... }:
   {
-    nixosConfigurations.command-center = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.mobile-command-center = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
 
       specialArgs = {
@@ -31,7 +31,7 @@
       };
 
       modules = [
-        ./hosts/trust/command-center/configuration.nix
+        ./hosts/trust/mobile-command-center/configuration.nix
       ];
     };
   };

@@ -4,6 +4,9 @@
   imports = [
     ### Services ###
 
+    # Networking
+    ../services/networking/networkmanager.nix
+
     # SSH
     ../services/ssh
 

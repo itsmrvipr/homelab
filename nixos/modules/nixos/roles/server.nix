@@ -4,8 +4,12 @@
   imports = [
     ### Services ###
 
+    # Networking
+    ../services/networking/systemd-networkd.nix
+    
     # SSH
     ../services/ssh
+
 
     ### System ###
 
