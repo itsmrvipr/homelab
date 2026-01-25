@@ -8,6 +8,8 @@
     # Locale
     ../system/locale/common.nix
 
+    # Users
+    ../users/itsmrvipr.nix
   ];
 
   environment.systemPackages = with pkgs; [
