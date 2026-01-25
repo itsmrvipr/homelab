@@ -2,6 +2,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    # github.com/NixOS/nixos-hardware/tree/master
     nixos-hardware.url = "github:NixOS/nixos-hardware";
 
     disko = {
@@ -20,6 +21,18 @@
     };
   };
 
-  outputs = {}:
+  outputs = { self, nixpkgs, nixos-hardware, ... }:
+  {
+    nixosConfigurations.command-center = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
 
+      specialArgs = {
+        inherit nixos-hardware;
+      };
+
+      modules = [
+        ./hosts/trust/command-center/configuration.nix
+      ];
+    };
+  };
 }

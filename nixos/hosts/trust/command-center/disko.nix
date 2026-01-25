@@ -45,7 +45,7 @@
       lvs = {
         swap = {
           # Use RAM x 1.5
-          size = "48G";
+          size = "24G";
           content = {
             type = "swap";
             resumeDevice = true;

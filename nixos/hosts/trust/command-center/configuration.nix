@@ -16,11 +16,6 @@
     # Role (device type)
 
 
-    # Specialization
-
-
-
-
   ];
 
   # No touchy
