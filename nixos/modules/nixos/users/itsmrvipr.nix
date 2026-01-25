@@ -21,7 +21,7 @@
       # Home Manager programs
       ../../homemanager/programs/fish/default.nix
       ../../homemanager/programs/git/default.nix
-      ../../homemanager/programs/librewolf/default.nix
+      ../../homemanager/programs/firefox/default.nix
     ];
 
   };

@@ -17,7 +17,9 @@
     neovim
     tree
     fastfetch
+    neofetch
     wireguard-tools
+    protonvpn-gui
   ];
 
 }
