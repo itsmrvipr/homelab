@@ -33,11 +33,11 @@
     # ---------- GIT ----------
     git_branch = {
       symbol = "";
-      format = "[](fg:#123499 bg:#004400)[ $symbol ](fg:#022c22 bg:#004400)[](fg:#004400 bg:#005d17)[  $branch ](fg:#022c22 bg:#005d17)";
+      format = "[](fg:#123499 bg:#005d17)[ $symbol ](fg:#022c22 bg:#005d17)[](fg:#005d17 bg:#005d17)[  $branch ](fg:#022c22 bg:#00762e)";
     };
 
     git_status = {
-      format = "[](fg:#005d17 bg:#00762e)[ $modified$staged$stashed$ahead_behind ](fg:#022c22 bg:#00762e)[](fg:#00762e)";
+      format = "[](fg:#00762e bg:#009146)[ $modified$staged$stashed$ahead_behind ](fg:#022c22 bg:#00762e)[](fg:#009146)";
       modified = " $count ";
       staged = " $count ";
       stashed = " $count ";
