@@ -1,95 +1,98 @@
 { ... }:
 
 {
-  programs.starship = {
-    enable = true;
-    enableFishIntegration = true;
+  programs.starship.settings = {
+    add_newline = false;
 
-    settings = {
-      add_newline = false;
+    format = "$os$username$directory$git_branch$git_status$line_break$character";
+    right_format = "$nodejs$python$cmd_duration$status$time";
 
-      # Left prompt (line 1)
-      format = ''
-        $os$username$custom$directory$git_branch$line_break$character
-      '';
+    # ---------- OS ----------
+    os = {
+      disabled = false;
+      symbols.NixOS = "";
+      symbols.Linux = "";
+      format = "[](fg:#d3d7cf)[ $symbol ](fg:#000000 bg:#d3d7cf)[](fg:#d3d7cf bg:#3465a4)";
+    };
 
-      # Right prompt (line 1)
-      right_format = ''
-        $time
-      '';
+    # ---------- USER ----------
+    username = {
+      show_always = true;
+      style_user = "fg:#000000 bg:#3465a4";
+      style_root = "fg:#ffffff bg:red";
+      format = "[ $user ]($style)[](fg:#3465a4 bg:#4e9a06)";
+    };
 
-      # Put the input cursor on line 2 (like your screenshot)
-      character = {
-        success_symbol = "[❯](bold green) ";
-        error_symbol = "[❯](bold red) ";
-        vimcmd_symbol = "[❮](bold green) ";
-      };
+    # ---------- DIRECTORY ----------
+    directory = {
+      home_symbol = "";
+      truncation_length = 0;
+      style = "fg:#ffffff bg:#4e9a06";
+      format = "[  $path ]($style)[](fg:#4e9a06 bg:#c4a000)";
+    };
 
-      # --- LEFT: Blue ribbon: OS + user ---
-      os = {
-        disabled = false;
-        # Blue segment, then transition to green
-        format = "[ $symbol ](fg:black bg:blue)[](fg:blue bg:green)";
-      };
+    # ---------- GIT ----------
+    git_branch = {
+      symbol = " ";
+      style = "fg:#000000 bg:#c4a000";
+      format = "[ $symbol $branch ]($style)";
+    };
 
-      username = {
-        show_always = true;
-        style_user = "fg:black bg:blue";
-        style_root = "fg:black bg:blue";
-        # Stays in blue; os already created the blue->green bridge
-        format = "[ $user ]($style)";
-      };
+    git_status = {
+      style = "fg:#000000 bg:#c4a000";
+      format = "[ $modified$staged$stashed$ahead_behind ]($style)[](fg:#c4a000)";
+      modified = " $count ";
+      staged = " $count ";
+      stashed = " $count ";
+      ahead = "⇡$count ";
+      behind = "⇣$count ";
+      diverged = "⇕⇡$ahead_count⇣$behind_count ";
+    };
 
-      # Folder icon as its own "segment" in green (no text, just icon)
-      # This prints only when the directory module is present (always in interactive prompt).
-      custom.folder = {
-        # A harmless command that always outputs once
-        command = "printf ''";
-        when = "true";
-        style = "fg:black bg:green";
-        format = "[ $output ]($style)";
-      };
+    # ---------- NODE ----------
+    nodejs = {
+      symbol = "";
+      style = "fg:#ffffff bg:#689f63";
+      format = "[](fg:#689f63)[ $symbol $version ]($style)";
+    };
 
-      # --- LEFT: Green ribbon: directory ---
-      directory = {
-        truncation_length = 3;
-        truncate_to_repo = true;
-        home_symbol = "~";
+    # ---------- PYTHON ----------
+    python = {
+      symbol = "";
+      style = "fg:#000000 bg:#FFDE57";
+      format = "[](fg:#FFDE57)[ $symbol $version ]($style)";
+    };
 
-        style = "fg:black bg:green";
+    # ---------- CMD DURATION ----------
+    cmd_duration = {
+      min_time = 0;
+      show_milliseconds = true;
+      style = "fg:#000000 bg:#c4a000";
+      format = "[](fg:#c4a000)[  $duration ]($style)";
+    };
 
-        # End green and bridge to yellow (for git); if git is absent, the yellow segment won't appear
-        format = "[ $path ]($style)[](fg:green bg:yellow)";
-      };
+    # ---------- STATUS ----------
+    status = {
+      disabled = false;
+      success_symbol = "";
+      symbol = "";
+      style = "fg:#ffffff bg:#000000";
+      format = "[](fg:#000000)[ $status ]($style)";
+    };
 
-      # --- LEFT: Yellow ribbon: git info (only shows in repo) ---
-      git_branch = {
-        symbol = " "; # GitHub + branch icon (Nerd Font)
-        style = "fg:black bg:yellow";
-        # Close out the yellow segment back to normal background
-        format = "[ $symbol $branch ]($style)[](fg:yellow)";
-      };
+    # ---------- TIME ----------
+    time = {
+      disabled = false;
+      time_format = "%H:%M:%S";
+      style = "fg:#000000 bg:#d3d7cf";
+      format = "[](fg:#d3d7cf)[  $time ]($style)[](fg:#d3d7cf)";
+    };
 
-      # Optional: show dirty/ahead/behind without adding another ribbon
-      git_status = {
-        disabled = false;
-        style = "fg:black bg:yellow";
-        format = "[$all_status$ahead_behind]($style)";
-      };
-
-      # If you want git_status *inside* the same yellow ribbon, append it to git_branch:
-      # (Simpler approach is to keep git_status disabled until you want it.)
-
-      # --- RIGHT: White ribbon: time ---
-      time = {
-        disabled = false;
-        time_format = "%H:%M";
-        style = "fg:black bg:white";
-
-        # Right side uses the inverse separator to “attach” to the right edge
-        format = "[](fg:white)[ $time ]($style)";
-      };
+    # ---------- LINE 2 ----------
+    character = {
+      success_symbol = "[╰─](fg:#d3d7cf) ";
+      error_symbol = "[╰─](fg:#d3d7cf) ";
+      vimcmd_symbol = "[╰─](fg:#d3d7cf) ";
     };
   };
 }
-
