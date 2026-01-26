@@ -6,7 +6,7 @@
   programs.starship.settings = {
     add_newline = false;
 
-    format = "[┏━](fg:white)$os$directory\\${custom.dir_cap}$git_branch$git_status$line_break[┗━](fg:white)$character";
+    format = "[┏━](fg:white)$os$directory\${custom.dir_cap}$git_branch$git_status$line_break[┗━](fg:white)$character";
     right_format = "$cmd_duration$time";
 
     character = {
