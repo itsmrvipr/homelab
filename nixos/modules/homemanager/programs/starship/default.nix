@@ -16,7 +16,14 @@
 
     custom = {
       git_spacer = {
-        when = "test -z \"$STARSHIP_GIT_BRANCH\"";
+        when = ''
+          dir="$PWD"
+          while [ "$dir" != "/" ]; do
+            [ -e "$dir/.git" ] && exit 1
+            dir="$(dirname "$dir")"
+          done
+          exit 0
+        '';
         format = "[](fg:#e6e6e6)";
       };
     };
