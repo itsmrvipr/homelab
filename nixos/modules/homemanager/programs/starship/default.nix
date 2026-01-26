@@ -20,7 +20,7 @@
       disabled = false;
       symbols.Linux = "";
       symbols.NixOS = "";
-      format = "[](fg:white)[ ](fg:black bg:white)[](fg:white bg:blue)";
+      format = "[](fg:white)[](fg:black bg:white)[](fg:white bg:blue)";
     };
 
     # ---------- DIRECTORY ----------
@@ -28,13 +28,13 @@
       home_symbol = "";
       truncation_length = 0;
       truncate_to_repo = true;
-      format = "[  $path ](fg:white bg:blue)[](fg:blue)";
+      format = "[  $path ](fg:white bg:blue)[](fg:blue bg:green)";
     };
 
     # ---------- GIT ----------
     git_branch = {
       symbol = " ";
-      format = "[](fg:blue bg:green)[ $symbol $branch ](fg:black bg:green)";
+      format = "[ $symbol $branch ](fg:black bg:green)";
     };
 
     git_status = {
@@ -51,15 +51,14 @@
     cmd_duration = {
       min_time = 0;
       show_milliseconds = true;
-      format = "[](fg:orange)[  $duration ](fg:black bg:orange)";
+      format = "[](fg:yellow)[  $duration ](fg:black bg:yellow)";
     };
 
     # ---------- TIME ----------
     time = {
       disabled = false;
       time_format = "%H:%M:%S";
-      style = "fg:#000000 bg:#d3d7cf";
-      format = "[](fg:#d3d7cf)[  $time ]($style)[](fg:#d3d7cf)";
+      format = "[](fg:gray)[  $time ](fg:white bg:gray)[](fg:gray)";
     };
   };
 }
