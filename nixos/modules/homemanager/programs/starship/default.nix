@@ -4,7 +4,7 @@
   programs.starship.enable = true;
 
   programs.starship.settings = {
-    add_newline = true;
+    add_newline = false;
 
     format = "[┏━](fg:white)$os$directory$git_branch$git_status$line_break[┗━](fg:white)$character";
     right_format = "$cmd_duration$time";
