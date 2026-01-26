@@ -16,14 +16,7 @@
 
     custom = {
       git_spacer = {
-        when = ''
-          dir="$PWD"
-          while [ "$dir" != "/" ]; do
-            [ -e "$dir/.git" ] && exit 1
-            dir="$(dirname "$dir")"
-          done
-          exit 0
-        '';
+        when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1; [ $? -ne 0 ]";
         format = "[](fg:#e6e6e6)";
       };
     };
