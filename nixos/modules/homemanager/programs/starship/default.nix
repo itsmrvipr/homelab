@@ -10,8 +10,8 @@
     right_format = "$cmd_duration$time";
     
     character = {
-      success_symbol = "[ ](fg:green) ";
-      error_symbol   = "[ ](fg:red) ";
+      success_symbol = "[ ](fg:green)";
+      error_symbol   = "[ ](fg:red)";
     };
     
     ### OS ###
