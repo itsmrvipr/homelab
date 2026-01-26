@@ -6,8 +6,8 @@
   programs.starship.settings = {
     add_newline = false;
 
-    format = "[┏━](fg:#ff0000)$os$directory$line_break[┗━](fg:white)$git_branch$git_status$character";
-    right_format = "$cmd_duration$time";
+    format = "[┏━](fg:white)$os$directory$git_branch$git_status$line_break[┗━](fg:white)$character";
+    right_format = "($cmd_duration$time";
     
     character = {
       success_symbol = "[┗━](fg:green) ";
