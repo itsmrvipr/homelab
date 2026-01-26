@@ -20,7 +20,7 @@
       disabled = false;
       symbols.Linux = "";
       symbols.NixOS = "";
-      format = "[](fg:white)[ $symbol ](fg:000000 bg:blue)[](fg:white bg:orange)";
+      format = "[](fg:white)[ $symbols.Linux $symbols.NixOs ](fg:black bg:white)[](fg:white bg:blue)";
     };
 
     # ---------- DIRECTORY ----------
