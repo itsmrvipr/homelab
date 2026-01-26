@@ -1,8 +1,10 @@
 { ... }:
 
 {
+  programs.starship.enable = true;
+
   programs.starship.settings = {
-    add_newline = false;
+    add_newline = true;
 
     format = "$os$username$directory$git_branch$git_status$line_break$character";
     right_format = "$nodejs$python$cmd_duration$status$time";
