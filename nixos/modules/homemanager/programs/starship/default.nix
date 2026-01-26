@@ -20,7 +20,7 @@
       disabled = false;
       symbols.Linux = "";
       symbols.NixOS = "";
-      format = "[](fg:white)[ $symbols.Linux $symbols.NixOs ](fg:black bg:white)[](fg:white bg:blue)";
+      format = "[](fg:white)[](fg:black bg:white)[](fg:white bg:blue)";
     };
 
     # ---------- DIRECTORY ----------
@@ -28,13 +28,13 @@
       home_symbol = "";
       truncation_length = 0;
       truncate_to_repo = true;
-      format = "[  $path ](fg:red bg:yellow)[](fg:white bg:green)";
+      format = "[  $path ](fg:white bg:blue)[](fg:white bg:green)";
     };
 
     # ---------- GIT ----------
     git_branch = {
       symbol = " ";
-      format = "[ $symbol $branch ](fg:orange bg:black)";
+      format = "[ $symbol $branch ](fg:black bg:green)";
     };
 
     git_status = {
