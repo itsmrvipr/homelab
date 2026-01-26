@@ -6,38 +6,35 @@
   programs.starship.settings = {
     add_newline = true;
 
-    format = "$os$username$directory$git_branch$git_status$line_break$character";
-    right_format = "$nodejs$python$cmd_duration$status$time";
-
-    # ---------- OS ----------
+    format = "[┏━](fg:#ff0000)$os$directory$git_branch$git_status$line_break";
+    right_format = "$cmd_duration$status$time";
+    
+    character = {
+      success_symbol = "[┗━](fg:#ff0000) ";
+      error_symbol   = "[┗━](fg:#ff0000) ";
+      vimcmd_symbol  = "[┗━](fg:#ff0000) ";
+    };
+    
+    ### OS ###  
     os = {
       disabled = false;
+      symbols.Linux = "";
       symbols.NixOS = "";
-      symbols.Linux = "";
-      format = "[](fg:#d3d7cf)[ $symbol ](fg:#000000 bg:#d3d7cf)[](fg:#d3d7cf bg:#3465a4)";
-    };
-
-    # ---------- USER ----------
-    username = {
-      show_always = true;
-      style_user = "fg:#000000 bg:#3465a4";
-      style_root = "fg:#ffffff bg:red";
-      format = "[ $user ]($style)[](fg:#3465a4 bg:#4e9a06)";
+      format = "[](fg:white)[ $symbol ](fg:000000 bg:blue)[](fg:white bg:orange)";
     };
 
     # ---------- DIRECTORY ----------
     directory = {
       home_symbol = "";
       truncation_length = 0;
-      style = "fg:#ffffff bg:#4e9a06";
-      format = "[  $path ]($style)[](fg:#4e9a06 bg:#c4a000)";
+      truncate_to_repo = true;
+      format = "[  $path ](fg:red bg:yellow)[](fg:white bg:green)";
     };
 
     # ---------- GIT ----------
     git_branch = {
       symbol = " ";
-      style = "fg:#000000 bg:#c4a000";
-      format = "[ $symbol $branch ]($style)";
+      format = "[ $symbol $branch ](fg:orange bg:black)";
     };
 
     git_status = {
@@ -56,13 +53,6 @@
       symbol = "";
       style = "fg:#ffffff bg:#689f63";
       format = "[](fg:#689f63)[ $symbol $version ]($style)";
-    };
-
-    # ---------- PYTHON ----------
-    python = {
-      symbol = "";
-      style = "fg:#000000 bg:#FFDE57";
-      format = "[](fg:#FFDE57)[ $symbol $version ]($style)";
     };
 
     # ---------- CMD DURATION ----------
@@ -88,13 +78,6 @@
       time_format = "%H:%M:%S";
       style = "fg:#000000 bg:#d3d7cf";
       format = "[](fg:#d3d7cf)[  $time ]($style)[](fg:#d3d7cf)";
-    };
-
-    # ---------- LINE 2 ----------
-    character = {
-      success_symbol = "[╰─](fg:#d3d7cf) ";
-      error_symbol = "[╰─](fg:#d3d7cf) ";
-      vimcmd_symbol = "[╰─](fg:#d3d7cf) ";
     };
   };
 }
