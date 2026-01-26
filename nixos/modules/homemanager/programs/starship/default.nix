@@ -6,13 +6,12 @@
   programs.starship.settings = {
     add_newline = false;
 
-    format = "[┏━](fg:#ff0000)$os$directory$git_branch$git_status$line_break";
+    format = "[┏━](fg:#ff0000)$os$directory$line_break[┗━](fg:white)$git_branch$git_status$character";
     right_format = "$cmd_duration$time";
     
     character = {
-      success_symbol = "[┗━](fg:white) ";
-      error_symbol   = "[┗━](fg:white) ";
-      vimcmd_symbol  = "[┗━](fg:white) ";
+      success_symbol = "[┗━](fg:green) ";
+      error_symbol   = "[┗━](fg:red) ";
     };
     
     ### OS ###
@@ -28,13 +27,13 @@
       home_symbol = "";
       truncation_length = 0;
       truncate_to_repo = true;
-      format = "[  $path ](fg:white bg:blue)[](fg:blue bg:green)";
+      format = "[  $path ](fg:white bg:blue)[](fg:blue)";
     };
 
     # ---------- GIT ----------
     git_branch = {
       symbol = " ";
-      format = "[ $symbol $branch ](fg:black bg:green)";
+      format = "[](fg:blue bg:green)[ $symbol $branch ](fg:black bg:green)";
     };
 
     git_status = {
