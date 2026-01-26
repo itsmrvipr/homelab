@@ -8,18 +8,24 @@
 
     format = "[┏━](fg:white)$os$directory$git_branch$git_status$line_break[┗━](fg:white)$character";
     right_format = "$cmd_duration$time";
-    
+
     character = {
       success_symbol = "[ ](fg:green)";
       error_symbol   = "[ ](fg:red)";
     };
-    
+
     ### OS ###
     os = {
       disabled = false;
-      symbols.Linux = "";
-      symbols.NixOS = "";
-      format = "[](fg:#3b3b3b)[   ](fg:#e5e5e5 bg:#3b3b3b)[](fg:#3b3b3b bg:#0a2472)";
+
+      # Fixes Nix->TOML nesting
+      symbols = {
+        Linux = "";
+        NixOS = "";
+      };
+
+      # Red palette
+      format = "[](fg:#3f1d1d)[   ](fg:#fee2e2 bg:#3f1d1d)[](fg:#3f1d1d bg:#7f1d1d)";
     };
 
     # ---------- DIRECTORY ----------
@@ -27,22 +33,22 @@
       home_symbol = "";
       truncation_length = 0;
       truncate_to_repo = true;
-      format = "[  ](fg:#f8fafc bg:#0a2472)[](fg:#0a2472 bg:#123499)[ $path ](fg:#f8fafc bg:#123499)";
+      format = "[  ](fg:#fee2e2 bg:#7f1d1d)[](fg:#7f1d1d bg:#b91c1c)[ $path ](fg:#fee2e2 bg:#b91c1c)";
     };
 
     # ---------- GIT ----------
     git_branch = {
       symbol = "";
-      format = "[](fg:#123499 bg:#005d17)[ $symbol ](fg:#022c22 bg:#005d17)[](fg:#005d17 bg:#00762e)[  $branch ](fg:#022c22 bg:#00762e)";
+      format = "[](fg:#b91c1c bg:#dc2626)[ $symbol ](fg:#1f0707 bg:#dc2626)[](fg:#dc2626 bg:#ef4444)[  $branch ](fg:#1f0707 bg:#ef4444)";
     };
 
     git_status = {
-      format = "[](fg:#00762e bg:#009146)[ $modified$staged$stashed$ahead_behind ](fg:#022c22 bg:#009146)[](fg:#009146)";
+      format = "[](fg:#ef4444 bg:#f87171)[ $modified$staged$stashed$ahead_behind ](fg:#1f0707 bg:#f87171)[](fg:#f87171)";
       modified = " $count ";
-      staged = " $count ";
-      stashed = " $count ";
-      ahead = "⇡$count ";
-      behind = "⇣$count ";
+      staged   = " $count ";
+      stashed  = " $count ";
+      ahead    = "⇡$count ";
+      behind   = "⇣$count ";
       diverged = "⇕⇡$ahead_count⇣$behind_count ";
     };
 
