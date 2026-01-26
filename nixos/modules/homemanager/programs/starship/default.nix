@@ -6,7 +6,7 @@
   programs.starship.settings = {
     add_newline = false;
 
-    format = "[┏━](fg:white)$os$directory$git_branch$git_status$line_break[┗━](fg:white)$character";
+    format = "[┏━](fg:white)$os$directory$git_branch$git_status$custom.git_spacer$line_break[┗━](fg:white)$character";
     right_format = "$cmd_duration$time";
 
     character = {
@@ -14,8 +14,19 @@
       error_symbol   = "[ ](fg:red)";
     };
 
+    custom.git_spacer = {
+      when = "! git rev-parse --is-inside-work-tree >/dev/null 2>&1";
+      format = "[](fg:#e6e6e6)";
+    };
+
     os = {
       disabled = false;
+
+      symbols = {
+        Linux = "";
+        NixOS = "";
+      };
+
       format = "[](fg:#0b0b0b)[   ](fg:#f5f5f5 bg:#0b0b0b)[](fg:#0b0b0b bg:#3a3a3a)";
     };
 
@@ -23,16 +34,19 @@
       home_symbol = "";
       truncation_length = 0;
       truncate_to_repo = true;
+
       format = "[  ](fg:#f5f5f5 bg:#3a3a3a)[](fg:#3a3a3a bg:#e6e6e6)[ $path ](fg:#111111 bg:#e6e6e6)";
     };
 
     git_branch = {
       symbol = "";
+
       format = "[](fg:#e6e6e6 bg:#b91c1c)[ $symbol ](fg:#0b0b0b bg:#b91c1c)[](fg:#b91c1c bg:#ef4444)[  $branch ](fg:#0b0b0b bg:#ef4444)";
     };
 
     git_status = {
       format = "[](fg:#ef4444 bg:#f87171)[ $modified$staged$stashed$ahead_behind ](fg:#0b0b0b bg:#f87171)[](fg:#f87171)";
+
       modified = " $count ";
       staged   = " $count ";
       stashed  = " $count ";
