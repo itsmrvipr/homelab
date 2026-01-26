@@ -6,7 +6,7 @@
   programs.starship.settings = {
     add_newline = false;
 
-    format = "[┏━](fg:white)$os$directory$git_branch$git_status\${custom.git_spacer}$line_break[┗━](fg:white)$character";
+    format = "[┏━](fg:white)$os$directory\\${custom.dir_cap}$git_branch$git_status$line_break[┗━](fg:white)$character";
     right_format = "$cmd_duration$time";
 
     character = {
@@ -15,8 +15,8 @@
     };
 
     custom = {
-      git_spacer = {
-        when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1; [ $? -ne 0 ]";
+      dir_cap = {
+        when = "! git rev-parse --is-inside-work-tree >/dev/null 2>&1";
         format = "[](fg:#e6e6e6)";
       };
     };
