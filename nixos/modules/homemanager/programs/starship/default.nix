@@ -6,12 +6,12 @@
   programs.starship.settings = {
     add_newline = false;
 
-    format = "[┏━](fg:white)$os$directory$git_branch$git_status$line_break[┗━](fg:white)";
+    format = "[┏━](fg:white)$os$directory$git_branch$git_status$line_break[┗━](fg:white)$character";
     right_format = "$cmd_duration$time";
     
     character = {
-      success_symbol = "[┗━](fg:green) ";
-      error_symbol   = "[┗━](fg:red) ";
+      success_symbol = "[ ](fg:green) ";
+      error_symbol   = "[ ](fg:red) ";
     };
     
     ### OS ###
@@ -19,7 +19,7 @@
       disabled = false;
       symbols.Linux = "";
       symbols.NixOS = "";
-      format = "[](fg:#3b3b3b)[](fg:#e5e5e5 bg:#3b3b3b)[](fg:#3b3b3b bg:#2563eb)";
+      format = "[](fg:#3b3b3b)[   ](fg:#e5e5e5 bg:#3b3b3b)[](fg:#3b3b3b bg:#2563eb)";
     };
 
     # ---------- DIRECTORY ----------
@@ -57,7 +57,7 @@
     time = {
       disabled = false;
       time_format = "%H:%M:%S";
-      format = "[](fg:#6b7280)[  $time ](fg:#f9fafb bg:#6b7280)[](fg:#6b7280)";
+      format = "[](fg:#6b7280 bg:#f59e0b)[  $time ](fg:#f9fafb bg:#6b7280)[](fg:#6b7280)";
     };
   };
 }
