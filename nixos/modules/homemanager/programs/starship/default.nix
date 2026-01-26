@@ -14,36 +14,25 @@
       error_symbol   = "[ ](fg:red)";
     };
 
-    ### OS ###
     os = {
       disabled = false;
-
-      # Fixes Nix->TOML nesting
-      symbols = {
-        Linux = "";
-        NixOS = "";
-      };
-
-      # Red palette
-      format = "[](fg:#3f1d1d)[   ](fg:#fee2e2 bg:#3f1d1d)[](fg:#3f1d1d bg:#7f1d1d)";
+      format = "[](fg:#0b0b0b)[   ](fg:#f5f5f5 bg:#0b0b0b)[](fg:#0b0b0b bg:#3a3a3a)";
     };
 
-    # ---------- DIRECTORY ----------
     directory = {
       home_symbol = "";
       truncation_length = 0;
       truncate_to_repo = true;
-      format = "[  ](fg:#fee2e2 bg:#7f1d1d)[](fg:#7f1d1d bg:#b91c1c)[ $path ](fg:#fee2e2 bg:#b91c1c)";
+      format = "[  ](fg:#f5f5f5 bg:#3a3a3a)[](fg:#3a3a3a bg:#e6e6e6)[ $path ](fg:#111111 bg:#e6e6e6)";
     };
 
-    # ---------- GIT ----------
     git_branch = {
       symbol = "";
-      format = "[](fg:#b91c1c bg:#dc2626)[ $symbol ](fg:#1f0707 bg:#dc2626)[](fg:#dc2626 bg:#ef4444)[  $branch ](fg:#1f0707 bg:#ef4444)";
+      format = "[](fg:#e6e6e6 bg:#b91c1c)[ $symbol ](fg:#0b0b0b bg:#b91c1c)[](fg:#b91c1c bg:#ef4444)[  $branch ](fg:#0b0b0b bg:#ef4444)";
     };
 
     git_status = {
-      format = "[](fg:#ef4444 bg:#f87171)[ $modified$staged$stashed$ahead_behind ](fg:#1f0707 bg:#f87171)[](fg:#f87171)";
+      format = "[](fg:#ef4444 bg:#f87171)[ $modified$staged$stashed$ahead_behind ](fg:#0b0b0b bg:#f87171)[](fg:#f87171)";
       modified = " $count ";
       staged   = " $count ";
       stashed  = " $count ";
@@ -52,14 +41,12 @@
       diverged = "⇕⇡$ahead_count⇣$behind_count ";
     };
 
-    # ---------- CMD DURATION ----------
     cmd_duration = {
       min_time = 0;
       show_milliseconds = true;
       format = "[](fg:#f59e0b)[  $duration ](fg:#1f1300 bg:#f59e0b)";
     };
 
-    # ---------- TIME ----------
     time = {
       disabled = false;
       time_format = "%H:%M:%S";
