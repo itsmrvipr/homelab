@@ -4,23 +4,23 @@
   programs.starship.enable = true;
 
   programs.starship.settings = {
-    add_newline = true;
+    add_newline = false;
 
     format = "[┏━](fg:#ff0000)$os$directory$git_branch$git_status$line_break";
-    right_format = "$cmd_duration$status$time";
+    right_format = "$cmd_duration$time";
     
     character = {
-      success_symbol = "[┗━](fg:#ff0000) ";
-      error_symbol   = "[┗━](fg:#ff0000) ";
-      vimcmd_symbol  = "[┗━](fg:#ff0000) ";
+      success_symbol = "[┗━](fg:white) ";
+      error_symbol   = "[┗━](fg:white) ";
+      vimcmd_symbol  = "[┗━](fg:white) ";
     };
     
-    ### OS ###  
+    ### OS ###
     os = {
       disabled = false;
       symbols.Linux = "";
       symbols.NixOS = "";
-      format = "[](fg:white)[](fg:black bg:white)[](fg:white bg:blue)";
+      format = "[](fg:white)[ ](fg:black bg:white)[](fg:white bg:blue)";
     };
 
     # ---------- DIRECTORY ----------
@@ -28,18 +28,17 @@
       home_symbol = "";
       truncation_length = 0;
       truncate_to_repo = true;
-      format = "[  $path ](fg:white bg:blue)[](fg:white bg:green)";
+      format = "[  $path ](fg:white bg:blue)[](fg:blue)";
     };
 
     # ---------- GIT ----------
     git_branch = {
-      symbol = " ";
-      format = "[ $symbol $branch ](fg:black bg:green)";
+      symbol = " ";
+      format = "[](fg:blue bg:green)[ $symbol $branch ](fg:black bg:green)";
     };
 
     git_status = {
-      style = "fg:#000000 bg:#c4a000";
-      format = "[ $modified$staged$stashed$ahead_behind ]($style)[](fg:#c4a000)";
+      format = "[ $modified$staged$stashed$ahead_behind ](fg:black bg:green)[](fg:green)";
       modified = " $count ";
       staged = " $count ";
       stashed = " $count ";
@@ -48,28 +47,11 @@
       diverged = "⇕⇡$ahead_count⇣$behind_count ";
     };
 
-    # ---------- NODE ----------
-    nodejs = {
-      symbol = "";
-      style = "fg:#ffffff bg:#689f63";
-      format = "[](fg:#689f63)[ $symbol $version ]($style)";
-    };
-
     # ---------- CMD DURATION ----------
     cmd_duration = {
       min_time = 0;
       show_milliseconds = true;
-      style = "fg:#000000 bg:#c4a000";
-      format = "[](fg:#c4a000)[  $duration ]($style)";
-    };
-
-    # ---------- STATUS ----------
-    status = {
-      disabled = false;
-      success_symbol = "";
-      symbol = "";
-      style = "fg:#ffffff bg:#000000";
-      format = "[](fg:#000000)[ $status ]($style)";
+      format = "[](fg:orange)[  $duration ](fg:black bg:orange)";
     };
 
     # ---------- TIME ----------
@@ -77,7 +59,7 @@
       disabled = false;
       time_format = "%H:%M:%S";
       style = "fg:#000000 bg:#d3d7cf";
-      format = "[](fg:#d3d7cf)[  $time ]($style)[](fg:#d3d7cf)";
+      format = "[](fg:#d3d7cf)[  $time ]($style)[](fg:#d3d7cf)";
     };
   };
 }
